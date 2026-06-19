@@ -1,0 +1,222 @@
+/* =======================================================
+   RESET & GLOBAL STYLES
+   ======================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    background: #eef3ff;
+}
+
+section {
+    margin-bottom: 70px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+
+/* =======================================================
+   LEVEL 1: BASIC ANIMATIONS & TRANSFORMS
+   ======================================================= */
+
+/* L1-1: Button Hover Effect */
+.btn-hover {
+    padding: 15px 30px;
+    background: #1565C0;
+    color: white;
+    border: none;
+    transition: .3s ease;
+}
+
+.btn-hover:hover {
+    background: #0d47a1;
+    transform: scale(1.1);
+}
+
+/* L1-2: Morphing Box (Square to Circle) */
+.morph-box {
+    width: 140px;
+    height: 140px;
+    background: orange;
+    transition: .4s;
+}
+
+.morph-box:hover {
+    border-radius: 50%;
+}
+
+/* L1-3: Transform Showcase (Rotate, Scale, Move, Skew) */
+.grid {
+    display: flex;
+    gap: 20px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: .4s;
+}
+
+.rotate { background: red; }
+.scale  { background: green; }
+.move   { background: blue; }
+.skew   { background: purple; }
+
+.rotate:hover { transform: rotate(45deg); }
+.scale:hover  { transform: scale(1.2); }
+.move:hover   { transform: translateY(-20px); }
+.skew:hover   { transform: skew(-10deg); }
+
+/* L1-4: Loading Spinner */
+.spinner {
+    width: 70px;
+    height: 70px;
+    border: 8px solid #ddd;
+    border-top: 8px solid rgb(255, 58, 58);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* L1-5: Fade In Text */
+.fade-text {
+    opacity: 0;
+    animation: fade 1s forwards;
+}
+
+
+/* =======================================================
+   LEVEL 2: ADVANCED LAYOUTS & EFFECTS
+   ======================================================= */
+
+/* L2-1: Cards Hover Effect */
+.cards {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    padding: 40px;
+    background: white;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+/* L2-2: Staggered Animation Sequence */
+.sequence div {
+    opacity: 0;
+    padding: 10px;
+    margin: 10px;
+    background: #2196f3;
+    color: white;
+    animation: fade 1s forwards;
+}
+
+.sequence div:nth-child(1) { animation-delay: 0s; }
+.sequence div:nth-child(2) { animation-delay: .1s; }
+.sequence div:nth-child(3) { animation-delay: .2s; }
+.sequence div:nth-child(4) { animation-delay: .3s; }
+.sequence div:nth-child(5) { animation-delay: .4s; }
+
+/* L2-3: Typewriter Effect */
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    border-right: 3px solid;
+    animation: typing 4s steps(30) forwards;
+}
+
+/* L2-4: 3D Card Flip */
+.flip {
+    perspective: 1000px;
+}
+
+.flip-inner {
+    width: 250px;
+    height: 180px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: .6s;
+}
+
+.flip:hover .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+}
+
+.front {
+    background: #1565C0;
+    color: white;
+}
+
+.back {
+    background: #ff9800;
+    transform: rotateY(180deg);
+}
+
+/* L2-5: Magic Pulse (Hover to Pause) */
+.magic {
+    padding: 20px;
+    background: #1565C0;
+    color: white;
+    animation: pulse 2s infinite;
+    transition: .3s;
+}
+
+.magic:hover {
+    animation-play-state: paused;
+    transform: scale(1.1);
+}
+
+
+/* =======================================================
+   KEYFRAMES DEFINITIONS
+   ======================================================= */
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 10px blue; }
+    50%      { box-shadow: 0 0 30px blue; }
+}
